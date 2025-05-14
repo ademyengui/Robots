@@ -4,9 +4,9 @@ public class RobotLivraison extends RobotConnecte {
     public static final int ENERGIE_LIVRAISON = 15;
     public static final int ENERGIE_CHARGEMENT = 5;
     
-    private String colisActuel;
-    private String destination;
-    private boolean enLivraison;
+    protected  String colisActuel;
+    protected  String destination;
+    protected  boolean enLivraison;
     
     public RobotLivraison(String id, int x, int y) {
         super(id, x, y);

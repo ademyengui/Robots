@@ -3,9 +3,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class RobotGUI extends JFrame {
-    private RobotLivraison robot;
-    private JTextArea infoArea;
-    private JTextArea historiqueArea;
+    protected  RobotLivraison robot;
+    protected  JTextArea infoArea;
+    protected  JTextArea historiqueArea;
     
     public RobotGUI() {
         super("Gestion de Robot de Livraison");
@@ -55,13 +55,13 @@ public class RobotGUI extends JFrame {
         updateDisplay();
     }
     
-    private JButton createButton(String text, ActionListener listener) {
+    protected  JButton createButton(String text, ActionListener listener) {
         JButton button = new JButton(text);
         button.addActionListener(listener);
         return button;
     }
     
-    private void demarrerRobot() {
+    protected  void demarrerRobot() {
         try {
             robot.demarrer();
             updateDisplay();
@@ -70,12 +70,12 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void arreterRobot() {
+    protected  void arreterRobot() {
         robot.arreter();
         updateDisplay();
     }
     
-    private void rechargerRobot() {
+    protected  void rechargerRobot() {
         String input = JOptionPane.showInputDialog(this, "Quantité à recharger (%):");
         if (input != null) {
             try {
@@ -88,7 +88,7 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void connecterRobot() {
+    protected  void connecterRobot() {
         String reseau = JOptionPane.showInputDialog(this, "Nom du réseau:");
         if (reseau != null && !reseau.isEmpty()) {
             try {
@@ -100,7 +100,7 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void chargerColis() {
+    protected  void chargerColis() {
         String colis = JOptionPane.showInputDialog(this, "Description du colis:");
         if (colis != null && !colis.isEmpty()) {
             String destination = JOptionPane.showInputDialog(this, "Destination:");
@@ -115,7 +115,7 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void livrerColis() {
+    protected  void livrerColis() {
         String inputX = JOptionPane.showInputDialog(this, "Coordonnée X de destination:");
         String inputY = JOptionPane.showInputDialog(this, "Coordonnée Y de destination:");
         
@@ -133,7 +133,7 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void effectuerTache() {
+    protected  void effectuerTache() {
         try {
             robot.effectuerTache();
             updateDisplay();
@@ -142,7 +142,7 @@ public class RobotGUI extends JFrame {
         }
     }
     
-    private void updateDisplay() {
+    protected  void updateDisplay() {
         infoArea.setText(robot.toString());
         historiqueArea.setText(robot.getHistorique());
     }
